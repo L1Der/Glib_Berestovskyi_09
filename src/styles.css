@@ -1,0 +1,300 @@
+body {
+  font-family: sans-serif; 
+  padding: 0 20px;
+}
+
+#app {
+  display: flex;
+}
+
+.main {
+  width: 70%;
+}
+
+.sidebar {
+  width: 30%;
+  margin-left: 20px;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.movie__description,
+.movie__genres {
+  display: none;
+}
+
+.movies_type_list {
+  display: block;
+}
+
+.movies_type_list .movie {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.movies_type_list .movie__info {
+  margin-left: 20px;
+  overflow: hidden;
+}
+
+.movies_type_list .movie__description,
+.movies_type_list .movie__genres {
+  display: block;
+}
+
+.movies_type_list .movie__genres {
+  display: flex;
+}
+
+.movies_type_list .movie__img {
+  width: auto;
+  height: 150px;
+  object-fit: contain;
+}
+
+.movies_type_list .movie__name {
+  display: flex;
+}
+
+.movies_type_list .movie__year {
+  margin: 0 5px;
+}
+
+.movie {
+  position: relative;
+}
+
+.movie__img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie__fav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background: rgba(0, 0, 0, .5);
+  border: none;
+}
+
+.movie__fav:focus {
+  outline: none;
+}
+
+.movie__fav svg {
+  width: 15px;
+  height: 15px;
+  fill: white;
+  pointer-events: none;
+}
+
+.movie__fav_added  svg {
+  fill: yellow;
+}
+
+.movie__name {
+  margin: 5px 0;
+}
+
+.movie__year {
+  display: block;
+  color: rgba(0,0,0,0.6);
+}
+
+.movie__description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.movie__genres {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.movie__genres li {
+  padding: 5px;
+  background: lightgray;
+  margin-right: 5px;
+}
+
+.favorite-item {
+  margin-bottom: 20px;
+}
+
+.favorite-item__delete {
+  cursor: pointer;
+}
+
+.views {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.views button {
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.views svg {
+  width: 30px;
+  height: 30px;
+  fill: lightgray;
+  pointer-events: none;
+}
+
+.views button.active svg {
+  fill: gray;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  display: none;
+
+  background: #fff;
+  width: 50wh;
+  height: 55vh;
+
+  z-index: 200;
+}
+
+.modal__content {
+  margin: 20px;
+}
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.modal__group1 {
+  display: flex;
+}
+.modal__group2 {
+  display: flex;
+}
+.movie__modal-fav {
+position: relative;
+}
+.modal__group3 {
+  display: flex;
+  align-items: center;
+}
+.block-width {
+  width: 210px;
+}
+.fit-img {
+  width: fit-content;
+}
+.img-modal {
+ max-width: 220px;
+}
+.block-margin {
+  margin: 15px;
+}
+.modal-grid-genere {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  width: fit-content;
+}
+.paranja {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, .6);
+}
+
+.modal_shown,
+.paranja_show {
+  display: block;
+}
+
+ /* loader styles */
+.lds-ring {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #3bbbe9;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #3bbbe9 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width:920px) {
+  .movies {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .modal {
+    height: 90vh;
+    width:320px;
+   }
+   .modal__group1 {
+     display: block;
+   }
+}
+@media screen and (max-width:520px) {
+  .movies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal {
+    height: 80vh;
+   }
+}
+@media (max-width: 740px){
+  .img-modal {
+      display:none;
+    }
+}
+@media screen and (max-width: 420px) {
+  .movies {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .modal {
+    height: 89vh;
+   }
+}
